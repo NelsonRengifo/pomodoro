@@ -1,60 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Pomodoro timer with task panel and focus/break music.">
-    <title>Pomodoro Timer</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+<title>Page Title</title>
 </head>
-<script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
-<body class="bg-image">
-    <header>
-        <h1>Pomodoro Timer</h1>
-    </header>
-    <main>
-        <section id="timer">
-            <div id="time">25:00</div> 
-        </section>
-        <section id="controls">
-            <!--Use the onclick="myFunction() to get javascript functionality"-->
-            <button id="start-btn" type="button">Start</button>
-            <button id="task-btn"  type="button">Task</button>
-            <button id="pause-btn" type="button">Pause</button>
-            <button id="reset-btn" type="button">Reset</button>
-        </section>
-    </main>
-    <aside id="task-panel" hidden>
-        <header>
-            <h2>Task</h2>
-            <button id="task-close-btn" type="button" aria-label="Close">&times;</button>
-        </header>
 
-        <p id="task-current">No task set</p>
+<body>
 
-        <div class="task-edit">
-            <input id="task-input" type="text" placeholder="What shall we accomplish today?"/>
-            <button id="task-save-btn" type="button">Save</button>
-            <button id="task-clear-btn" type="button">Clear</button>
-        </div>
-    </aside>
+<h1>My First Heading</h1>
+<p>My first paragraph.</p>
 
-    <!-- Background music (looped) -->
-<audio id="menu-bgm"  preload="auto" loop>
-  <source src="/static/audio/menu.mp3" type="audio/mpeg">
-</audio>
-
-<audio id="work-bgm"  preload="auto" loop>
-  <source src="/static/audio/work.mp3" type="audio/mpeg">
-</audio>
-
-<audio id="break-bgm" preload="auto" loop>
-  <source src="/static/audio/break.mp3" type="audio/mpeg">
-</audio>
-
-<!-- Phase change sound (one-shot, not looped) -->
-<audio id="phase-sfx" preload="auto">
-  <source src="/static/audio/phase.mp3" type="audio/mpeg">
-</audio>
 </body>
+
 </html>
