@@ -10,16 +10,19 @@ body
 .main-header
 {
     color: aliceblue;
-    font-size: 60px
+    font-size: 60px;
+    margin-left: 42%;
 }
 
 .phase-state
 {
     color: aliceblue;
+    margin-left: 46%;
 }
 
 .timer-display
 {
     color:aliceblue;
     font-size: 40px;
+    margin-left: 46%;
 }
