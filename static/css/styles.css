@@ -1,0 +1,25 @@
+body
+{
+    background-image: url(/static/images/pomodoro_img.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+.main-header
+{
+    color: aliceblue;
+    font-size: 60px
+}
+
+.phase-state
+{
+    color: aliceblue;
+}
+
+.timer-display
+{
+    color:aliceblue;
+    font-size: 40px;
+}
