@@ -6,9 +6,44 @@
     <meta name="viewport"    content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"   href="/static/css/styles.css">
     <script src="/static/js/app.js" defer="defer"></script>
-    <title>Pomodoro Timer</title>
+    <title>Display timer here</title>
 </head>
 <body>
-    
+    <main>
+        <header class="page-title"><h1>pomodoro</h1></header>
+        <div class="time-div">
+            <time id="timer">25:00</time>
+            <button class="btn" id="startPauseBtn" type="button" data-state="stopped">▶</button>
+            <svg class="progress-ring"  viewBox="0 0 100 100">
+                <!--background ring track-->
+                <circle 
+                class="ring-track" 
+                id="track" 
+                r="45" 
+                cx="50" 
+                cy="50" 
+                fill="none" 
+                stroke="grey" 
+                stroke-width="3"
+                />
+                <!--dynamic ring meter-->
+                <circle 
+                class="ring" 
+                id="time-ring" 
+                r="45" 
+                cx="50" 
+                cy="50" 
+                fill="none" 
+                stroke="red" 
+                stroke-width="3" 
+                pathLength="100"  
+                stroke-dasharray="101"  
+                stroke-dashoffset="0" 
+                transform="rotate(-90 50 50)" 
+                stroke-linecap="round"
+                /> 
+            </svg>
+        </div>
+    </main>
 </body>
 </html>
