@@ -1,0 +1,113 @@
+body
+{
+  background-image: url("/static/images/beach.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  margin: 0;
+  min-height: 95dvh;
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+
+hr
+{
+  background-color: white;
+  width: 100%;
+  height: 5px;
+  border: none;
+}
+
+.title
+{
+  color: white;
+  font-size: 40px;
+}
+
+.timer
+{
+  color: white;
+  font-size: 120px;
+  font-weight: bold;
+}
+
+.btn-container
+{
+  border: none;
+  outline: none;
+  transition: all 0.3s ease;
+  display: flex;
+  gap: 3em;
+}
+
+#start
+{
+  background-color: transparent;
+  color: white;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: white;
+  border-width: 1px;
+  font-size: 25px;
+  padding: 7px;
+  cursor: pointer;
+}
+
+#start:hover
+{
+  background-color: white;
+  color: black;
+  border-color: black;
+}
+
+#pause
+{
+  background-color: transparent;
+  color: white;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: white;
+  border-width: 1px;
+  font-size: 25px;
+  padding: 7px;
+  cursor: pointer;
+}
+
+#pause:hover
+{
+  background-color: white;
+  color: black;
+  border-color: black;
+}
+
+#reset
+{
+  background-color: transparent;
+  color: white;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: white;
+  border-width: 1px;
+  font-size: 25px;
+  padding: 7px;
+  cursor: pointer;
+}
+
+#reset:hover
+{
+  background-color: white;
+  color: black;
+  border-color: black;
+}
