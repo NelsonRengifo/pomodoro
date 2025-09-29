@@ -47,9 +47,8 @@ hr
 {
   border: none;
   outline: none;
-  transition: all 0.3s ease;
   display: flex;
-  gap: 3em;
+  gap: 2em;
 }
 
 #start
