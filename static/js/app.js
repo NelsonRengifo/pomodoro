@@ -18,8 +18,8 @@ const longBreakStartingTime = 900;
 
 let currentTime = workStartingTime;
 
-function setStartingTime(starting_time) {
-  currentTime = starting_time;
+function setStartingTime(startingTime) {
+  currentTime = startingTime;
 }
 
 function runTimer() {
