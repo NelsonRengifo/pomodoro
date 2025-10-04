@@ -1,56 +1,89 @@
+const startPauseButton = document.getElementById("start-pause");
 const timer = document.getElementById("time");
-const button = document.getElementById("start");
 const resetButton = document.getElementById("reset");
 
-let MY_INTERVAL;
+let pomodoroCount = 0;
+let intervalId = null;
+let isWorking = true;
+const pomodoroTime = "25:00";
+const shortBreakTime = "05:00";
+const longBreakTime = "15:00";
+const fullPomodoroCycle = 4;
+/*
+ * Times are in seconds.
+ */
+const workStartingTime = 1500;
+const shortBreakStartingTime = 300;
+const longBreakStartingTime = 900;
 
-function startTimer()
-{
-    if(timer.textContent == "00:00")
-    {
-        clearInterval(MY_INTERVAL);
-        button.textContent = "Start";
-        return;
+let currentTime = workStartingTime;
+
+function setStartingTime(starting_time) {
+  currentTime = starting_time;
+}
+
+function runTimer() {
+  currentTime--;
+  minutes = String(Math.floor(currentTime / 60));
+  seconds = String(currentTime % 60);
+  minutes = minutes.padStart(2, "0");
+  seconds = seconds.padStart(2, "0");
+  let newTime = minutes + ":" + seconds;
+  timer.textContent = newTime;
+
+  /*
+   * Phase transitioning (work or break).
+   */
+  if (currentTime == 0) {
+    if (isWorking && pomodoroCount < fullPomodoroCycle) {
+      setStartingTime(shortBreakStartingTime);
+      isWorking = false;
+      pomodoroCount++;
+    } else if (isWorking && pomodoroCount == fullPomodoroCycle) {
+      setStartingTime(longBreakStartingTime);
+      isWorking = false;
+      pomodoroCount = 0;
+    } else {
+      setStartingTime(workStartingTime);
+      isWorking = true;
+      startPauseButton.textContent = "Start";
+      timer.textContent = pomodoroTime;
+      stopCounting();
     }
+  }
+}
+/*
+ * 1s = 1000ms
+ */
+function startCounting() {
+  intervalId = setInterval(runTimer, 1000);
+}
+function stopCounting() {
+  clearInterval(intervalId);
+}
 
-    let currentTime =  timer.textContent;
-    let colon = currentTime.indexOf(":");
-    let minutes = parseInt(currentTime.slice(0,colon));
-    let seconds = parseInt(currentTime.slice(colon + 1));
-    let totalSeconds = (minutes * 60) + seconds;
-
-    totalSeconds--;
-
-    let newTime = totalSeconds;
-    minutes = String(Math.floor(newTime / 60)); 
-    seconds = String(totalSeconds % 60);
-
-    minutes = minutes.padStart(2, "0");
-    seconds = seconds.padStart(2, "0");
-    newTime = minutes + ":" + seconds;
-
-    timer.textContent = newTime;
-};
-
-button.addEventListener("click", function()
-{
-    if(button.textContent == "Start")
-    {
-        button.textContent = "Pause";
-        MY_INTERVAL = setInterval(startTimer, 1000);
-    }
-
-    else
-    {
-        clearInterval(MY_INTERVAL);
-        button.textContent = "Start";
-    }
+startPauseButton.addEventListener("click", function () {
+  if (startPauseButton.textContent == "Start") {
+    startPauseButton.textContent = "Pause";
+    startCounting();
+  } else {
+    stopCounting();
+    startPauseButton.textContent = "Start";
+  }
 });
 
+resetButton.addEventListener("click", function () {
+  stopCounting();
+  startPauseButton.textContent = "Start";
 
-resetButton.addEventListener("click", function()
-{
-    clearInterval(MY_INTERVAL);
-    button.textContent = "Start";
-    timer.textContent = "25:00";
+  if (isWorking) {
+    timer.textContent = pomodoroTime;
+    setStartingTime(workStartingTime);
+  } else if (!isWorking && pomodoroCount < fullPomodoroCycle) {
+    timer.textContent = shortBreakTime;
+    setStartingTime(shortBreakStartingTime);
+  } else {
+    timer.textContent = longBreakTime;
+    setStartingTime(longBreakStartingTime);
+  }
 });
