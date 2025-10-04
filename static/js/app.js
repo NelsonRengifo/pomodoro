@@ -30,7 +30,6 @@ function runTimer() {
   seconds = seconds.padStart(2, "0");
   let newTime = minutes + ":" + seconds;
   timer.textContent = newTime;
-
   /*
    * Phase transitioning (work or break).
    */
