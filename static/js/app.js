@@ -24,8 +24,8 @@ function setStartingTime(startingTime) {
 
 function runTimer() {
   currentTime--;
-  minutes = String(Math.floor(currentTime / 60));
-  seconds = String(currentTime % 60);
+  let minutes = String(Math.floor(currentTime / 60));
+  let seconds = String(currentTime % 60);
   minutes = minutes.padStart(2, "0");
   seconds = seconds.padStart(2, "0");
   let newTime = minutes + ":" + seconds;
@@ -33,7 +33,7 @@ function runTimer() {
   /*
    * Phase transitioning (work or break).
    */
-  if (currentTime == 0) {
+  if (currentTime <= 0) {
     if (isWorking && pomodoroCount < fullPomodoroCycle) {
       setStartingTime(shortBreakStartingTime);
       isWorking = false;
