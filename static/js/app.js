@@ -36,7 +36,6 @@ function runTimer() {
   timer.textContent = newTime;
   title.textContent = `Pomodoro Timer: ${newTime}`;
 
-
   /*
    * Phase transitioning (work or break).
    */
