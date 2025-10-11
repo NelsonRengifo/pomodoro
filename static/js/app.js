@@ -17,7 +17,7 @@ const fullPomodoroCycle = 4;
  */
 
 const workStartingTime = 1500; 
-const shortBreakStartingTime = 300; 
+const shortBreakStartingTime = 300; //
 const longBreakStartingTime = 900; 
 
 let currentTime = workStartingTime;
