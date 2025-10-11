@@ -1,6 +1,8 @@
 const startPauseButton = document.getElementById("start-pause");
 const timer = document.getElementById("time");
 const resetButton = document.getElementById("reset");
+const title = document.getElementById("tab-title");
+const pomodoros = document.getElementById("pomodoro-count");
 
 let pomodoroCount = 0;
 let intervalId = null;
@@ -9,9 +11,11 @@ const pomodoroTime = "25:00";
 const shortBreakTime = "05:00";
 const longBreakTime = "15:00";
 const fullPomodoroCycle = 4;
+
 /*
  * Times are in seconds.
  */
+
 const workStartingTime = 1500;
 const shortBreakStartingTime = 300;
 const longBreakStartingTime = 900;
@@ -30,18 +34,26 @@ function runTimer() {
   seconds = seconds.padStart(2, "0");
   let newTime = minutes + ":" + seconds;
   timer.textContent = newTime;
+  title.textContent = `Pomodoro Timer: ${newTime}`;
+
+
   /*
    * Phase transitioning (work or break).
    */
+
   if (currentTime <= 0) {
+    const transitionSound = document.getElementById("phase-sound");
+    transitionSound.play();
     if (isWorking && pomodoroCount < fullPomodoroCycle) {
       setStartingTime(shortBreakStartingTime);
       isWorking = false;
       pomodoroCount++;
+      pomodoros.textContent = `${pomodoroCount}/4`;
     } else if (isWorking && pomodoroCount == fullPomodoroCycle) {
       setStartingTime(longBreakStartingTime);
       isWorking = false;
       pomodoroCount = 0;
+      pomodoros.textContent = `${pomodoroCount}/4`;
     } else {
       setStartingTime(workStartingTime);
       isWorking = true;
@@ -51,9 +63,11 @@ function runTimer() {
     }
   }
 }
+
 /*
  * 1s = 1000ms
  */
+
 function startCounting() {
   intervalId = setInterval(runTimer, 1000);
 }
@@ -62,6 +76,8 @@ function stopCounting() {
 }
 
 startPauseButton.addEventListener("click", function () {
+  const audio = document.getElementById("click-sound");
+  audio.play();
   if (startPauseButton.textContent == "Start") {
     startPauseButton.textContent = "Pause";
     startCounting();
@@ -72,17 +88,22 @@ startPauseButton.addEventListener("click", function () {
 });
 
 resetButton.addEventListener("click", function () {
+  const audio = document.getElementById("click-sound");
+  audio.play();
   stopCounting();
   startPauseButton.textContent = "Start";
 
   if (isWorking) {
     timer.textContent = pomodoroTime;
+    title.textContent = `Pomodoro Timer: ${pomodoroTime}`;
     setStartingTime(workStartingTime);
   } else if (!isWorking && pomodoroCount < fullPomodoroCycle) {
     timer.textContent = shortBreakTime;
+    title.textContent = `Pomodoro Timer: ${shortBreakTime}`;
     setStartingTime(shortBreakStartingTime);
   } else {
     timer.textContent = longBreakTime;
+    title.textContent = `Pomodoro Timer: ${longBreakTime}`;
     setStartingTime(longBreakStartingTime);
   }
 });

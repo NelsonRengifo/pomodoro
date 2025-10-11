@@ -1,12 +1,12 @@
 body {
-  background-image: url("/static/images/beach.jpg");
+  background-image: url("/static/images/background_clouds.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   margin: 0;
   min-height: 100dvh;
-  font-family: sans-serif;
+  font-style: oblique;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -54,6 +54,7 @@ hr {
   border-color: white;
   border-width: 1px;
   font-size: 25px;
+  font-style: oblique;
   padding: 7px;
   cursor: pointer;
 }
@@ -72,6 +73,7 @@ hr {
   border-color: white;
   border-width: 1px;
   font-size: 25px;
+  font-style: oblique;
   padding: 7px;
   cursor: pointer;
 }
@@ -80,4 +82,10 @@ hr {
   background-color: white;
   color: black;
   border-color: black;
+}
+
+#pomodoro-count{
+  background-color: transparent;
+  color: white;
+  font-size: 25px;
 }
