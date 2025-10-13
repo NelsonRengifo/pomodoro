@@ -1,3 +1,7 @@
+/*
+* Tab timer should display 25:00 after end of break face (currently shows 00:00).
+*/
+
 const startPauseButton = document.getElementById("start-pause");
 const timer = document.getElementById("time");
 const resetButton = document.getElementById("reset");
