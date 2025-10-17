@@ -12,7 +12,6 @@ You can try it live here:
 ## Features
 
 - Clean and minimal user interface
-- Customizable work and break sessions
 - Audio alerts for phase transitions
 - Mobile-friendly layout
 - Hosted with **GitHub Pages**
@@ -24,7 +23,6 @@ You can try it live here:
 1. Click **Start** to begin a Pomodoro session (default: 25 minutes).
 2. When the timer ends, you'll hear a **bell sound** signaling the next phase (break/work).
 3. Click **Reset** to restart the timer anytime.
-4. Stay consistent and enjoy improved focus! 🍅
 
 ---
 
